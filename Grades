@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+ 
+  int grades[4];
+  int average;
+
+  grades[0] = 80;
+  grades[1] = 85;
+  grades[2] = 90;
+  grades[3] = 75;
+
+  average = (grades[0] + grades[1] + grades[2] + grades[3]) / 4;
+  printf("The average of the 4 grades is: %d", average);
+
+  return 0;
+}
+output:
+   The average of the 4 grades is: 82
