@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    float sub1, sub2, sub3, sub4, sub5;
+    float total, average;
+
+    printf("--- Student Average Marks Calculator ---\n");
+
+    // Input marks for 5 subjects
+    printf("Enter marks for Subject 1: ");
+    scanf("%f", &sub1);
+    printf("Enter marks for Subject 2: ");
+    scanf("%f", &sub2);
+    printf("Enter marks for Subject 3: ");
+    scanf("%f", &sub3);
+    printf("Enter marks for Subject 4: ");
+    scanf("%f", &sub4);
+    printf("Enter marks for Subject 5: ");
+    scanf("%f", &sub5);
+
+    // Calculate total and average
+    total = sub1 + sub2 + sub3 + sub4 + sub5;
+    average = total / 5;
+
+    // Output the results
+    printf("\n--- Results ---\n");
+    printf("Total Marks: %.2f\n", total);
+    printf("Average Marks: %.2f\n", average);
+
+    return 0;
+} 
+o/p:
+-- Student Average Marks Calculator ---
+Enter marks for Subject 1: 85
+Enter marks for Subject 2: 89
+Enter marks for Subject 3: 95
+Enter marks for Subject 4: 100
+Enter marks for Subject 5: 99
+
+--- Results ---
+Total Marks: 468.00
+Average Marks: 93.60
