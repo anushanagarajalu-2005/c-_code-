@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    float sales[7];
+    float total_sales = 0.0;
+    int i;
+    char *days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+    printf("--- Weekly Sales Tracker ---\n");
+
+    // Input phase: Loop to collect sales for each day
+    for (i = 0; i < 7; i++) {
+        printf("Enter sales for %s: $", days[i]);
+        scanf("%f", &sales[i]);
+        
+        // Accumulate the total
+        total_sales += sales[i];
+    }
+
+    // Output phase: Display results
+    printf("\n==============================");
+    printf("\n      SALES SUMMARY REPORT    ");
+    printf("\n==============================");
+    printf("\nTotal Weekly Sales : $%.2f", total_sales);
+    printf("\nAverage Daily Sales: $%.2f", total_sales / 7);
+    printf("\n==============================\n");
+
+    return 0;
+}
+o/p:
+--- Weekly Sales Tracker ---
+Enter sales for Monday: $200
+Enter sales for Tuesday: $250
+Enter sales for Wednesday: $300
+Enter sales for Thursday: $350
+Enter sales for Friday: $400
+Enter sales for Saturday: $450
+Enter sales for Sunday: $500
+
+==============================
+      SALES SUMMARY REPORT    
+==============================
+Total Weekly Sales : $2450.00
+Average Daily Sales: $350.00
+==============================
