@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    float original_price, discount_rate, discount_amount, final_price;
+
+    printf("--- Shopping Discount Calculator ---\n");
+
+    // Input the price and discount rate
+    printf("Enter the Original Price: $");
+    scanf("%f", &original_price);
+
+    printf("Enter the Discount Percentage (%%): ");
+    scanf("%f", &discount_rate);
+
+    // Calculate the savings and the final price
+    discount_amount = (original_price * discount_rate) / 100;
+    final_price = original_price - discount_amount;
+
+    // Output the detailed breakdown
+    printf("\n--- Price Summary ---\n");
+    printf("Original Price: $%.2f\n", original_price);
+    printf("Discount Saved: $%.2f\n", discount_amount);
+    printf("---------------------------\n");
+    printf("Final Price   : $%.2f\n", final_price);
+
+    return 0;
+}
+o/p:
+--- Shopping Discount Calculator ---
+Enter the Original Price: $120
+Enter the Discount Percentage (%): 20
+
+--- Price Summary ---
+Original Price: $120.00
+Discount Saved: $24.00
+---------------------------
+Final Price   : $96.00
