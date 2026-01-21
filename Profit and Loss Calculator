@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    float cost_price, selling_price, amount;
+
+    printf("--- Profit and Loss Calculator ---\n");
+
+    // Input Cost Price and Selling Price
+    printf("Enter the Cost Price: ");
+    scanf("%f", &cost_price);
+
+    printf("Enter the Selling Price: ");
+    scanf("%f", &selling_price);
+
+    // Comparison logic
+    if (selling_price > cost_price) {
+        amount = selling_price - cost_price;
+        printf("\nResult: PROFIT");
+        printf("\nYou made a profit of: $%.2f\n", amount);
+    } 
+    else if (cost_price > selling_price) {
+        amount = cost_price - selling_price;
+        printf("\nResult: LOSS");
+        printf("\nYou incurred a loss of: $%.2f\n", amount);
+    } 
+    else {
+        printf("\nResult: No Profit, No Loss.\n");
+    }
+
+    return 0;
+}
+o/p:
+--- Profit and Loss Calculator ---
+Enter the Cost Price: 500
+Enter the Selling Price: 650
+
+Result: PROFIT
+You made a profit of: $150.00
