@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int total_students, i;
+
+    printf("--- Class Attendance List Generator ---\n");
+
+    // Input the total number of students
+    printf("Enter the total number of students: ");
+    scanf("%d", &total_students);
+
+    printf("\nGenerating Attendance List:\n");
+    printf("---------------------------\n");
+
+    // Using a for loop to print numbers from 1 to total_students
+    // i++ means the number increases by 1 each time the loop runs
+    for (i = 1; i <= total_students; i++) {
+        printf("Attendance Number: %d\n", i);
+    }
+
+    printf("---------------------------\n");
+    printf("List generated successfully.\n");
+
+    return 0;
+}
+o/p:
+--- Class Attendance List Generator ---
+Enter the total number of students: 6
+
+Generating Attendance List:
+---------------------------
+Attendance Number: 1
+Attendance Number: 2
+Attendance Number: 3
+Attendance Number: 4
+Attendance Number: 5
+Attendance Number: 6
+---------------------------
+List generated successfully.
