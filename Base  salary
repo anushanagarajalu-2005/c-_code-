@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    float base_salary, bonus_percentage, bonus_amount, total_salary;
+
+    printf("--- Employee Salary Calculator ---\n");
+
+    // Input the base salary
+    printf("Enter the Base Salary: ");
+    scanf("%f", &base_salary);
+
+    // Input the bonus percentage
+    printf("Enter Bonus Percentage (e.g., 10 for 10%%): ");
+    scanf("%f", &bonus_percentage);
+
+    // Calculation logic
+    bonus_amount = (base_salary * bonus_percentage) / 100;
+    total_salary = base_salary + bonus_amount;
+
+    // Displaying the results
+    printf("\n--- Salary Breakdown ---\n");
+    printf("Base Salary     : $%.2f\n", base_salary);
+    printf("Bonus Amount    : $%.2f\n", bonus_amount);
+    printf("---------------------------\n");
+    printf("Total Net Salary: $%.2f\n", total_salary);
+
+    return 0;
+}
+o/p:
+-- Employee Salary Calculator ---
+Enter the Base Salary: 5000
+Enter Bonus Percentage (e.g., 10 for 10%): 12
+
+--- Salary Breakdown ---
+Base Salary     : $5000.00
+Bonus Amount    : $600.00
+---------------------------
+Total Net Salary: $5600.00
+
