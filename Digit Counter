@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    long long n;
+    int count = 0;
+
+    printf("--- Digit Counter ---\n");
+    printf("Enter an integer: ");
+    scanf("%lld", &n);
+
+    // Store the original number for the final message
+    long long temp = n;
+
+    // Handle the case where the number is 0
+    if (n == 0) {
+        count = 1;
+    } 
+    else {
+        // Remove the negative sign if the number is negative
+        if (n < 0) {
+            n = -n;
+        }
+
+        // Loop to count digits
+        while (n != 0) {
+            n = n / 10; // Remove the last digit
+            count++;    // Increment the counter
+        }
+    }
+
+    printf("\nThe number %lld has %d digits.\n", temp, count);
+
+    return 0;
+}
+o/p:
+--- Digit Counter ---
+Enter an integer: 74829
+
+The number 74829 has 5 digits.
