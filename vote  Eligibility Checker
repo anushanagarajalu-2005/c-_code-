@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int age;
+
+    printf("--- Voting Eligibility Checker ---\n");
+
+    // Asking for the user's age
+    printf("Please enter your age: ");
+    scanf("%d", &age);
+
+    // Conditional logic to check eligibility
+    if (age >= 18) {
+        printf("\nResult: You are %d years old.\n", age);
+        printf("Status: You are eligible to vote!\n");
+    } 
+    else {
+        printf("\nResult: You are only %d years old.\n", age);
+        printf("Status: You are not eligible to vote yet.\n");
+        printf("Wait for %d more year(s).\n", 18 - age);
+    }
+
+    return 0;
+}
+o/p:
+--- Voting Eligibility Checker ---
+Please enter your age: 20
+
+Result: You are 20 years old.
+Status: You are eligible to vote!
