@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    float length, width, area, perimeter;
+
+    printf("--- Rectangle Calculator ---\n");
+
+    // Taking dimensions from the user
+    printf("Enter the Length of the rectangle: ");
+    scanf("%f", &length);
+
+    printf("Enter the Width of the rectangle: ");
+    scanf("%f", &width);
+
+    // Calculations
+    area = length * width;
+    perimeter = 2 * (length + width);
+
+    // Displaying the results
+    printf("\nResults:\n");
+    printf("Area      : %.2f sq units\n", area);
+    printf("Perimeter : %.2f units\n", perimeter);
+
+    return 0;
+}
+o/p:
+--- Rectangle Calculator ---
+Enter the Length of the rectangle: 10
+Enter the Width of the rectangle: 5
+
+Results:
+Area      : 50.00 sq units
+Perimeter : 30.00 units
