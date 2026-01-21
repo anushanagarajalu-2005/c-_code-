@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    float weight, height, bmi;
+
+    printf("--- Body Mass Index (BMI) Calculator ---\n");
+
+    // Input weight in kilograms
+    printf("Enter weight in kg: ");
+    scanf("%f", &weight);
+
+    // Input height in meters
+    printf("Enter height in meters (e.g., 1.75): ");
+    scanf("%f", &height);
+
+    // Calculation: weight divided by height squared
+    bmi = weight / (height * height);
+
+    // Displaying the result
+    printf("\nYour BMI is: %.2f\n", bmi);
+
+    // Categorizing the BMI result
+    if (bmi < 18.5) {
+        printf("Category: Underweight\n");
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+        printf("Category: Normal weight (Healthy)\n");
+    } else if (bmi >= 25 && bmi <= 29.9) {
+        printf("Category: Overweight\n");
+    } else {
+        printf("Category: Obese\n");
+    }
+
+    return 0;
+}
+o/p:
+--- Body Mass Index (BMI) Calculator ---
+Enter weight in kg: 70
+Enter height in meters (e.g., 1.75): 1.75
+
+Your BMI is: 22.86
+Category: Normal weight (Healthy)
