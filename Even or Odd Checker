@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int num;
+
+    printf("--- Even or Odd Checker ---\n");
+
+    // Input the number from user
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    // Check if the remainder is zero when divided by 2
+    if (num % 2 == 0) {
+        printf("%d is an Even number.\n", num);
+    } 
+    else {
+        printf("%d is an Odd number.\n", num);
+    }
+
+    return 0;
+}
+o/p:
+--- Even or Odd Checker ---
+Enter an integer: 14
+14 is an Even number.
