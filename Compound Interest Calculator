@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float principal, rate, time, n;
+    float amount, ci;
+
+    printf("--- Compound Interest Calculator ---\n");
+
+    // Input values
+    printf("Enter Principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Enter Annual Interest Rate (in %%): ");
+    scanf("%f", &rate);
+
+    printf("Enter Time (in years): ");
+    scanf("%f", &time);
+
+    printf("Enter number of times interest is compounded per year: ");
+    scanf("%f", &n);
+
+    // Convert rate from percentage to decimal
+    float r = rate / 100;
+
+    // Compound Interest Formula: A = P(1 + r/n)^(nt)
+    amount = principal * pow((1 + r / n), (n * time));
+    ci = amount - principal;
+
+    // Display Results
+    printf("\n--- Financial Summary ---\n");
+    printf("Total Amount after %.1f years: %.2f\n", time, amount);
+    printf("Compound Interest Earned   : %.2f\n", ci);
+    printf("--------------------------\n");
+
+    return 0;
+}
+o/p:
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float principal, rate, time, n;
+    float amount, ci;
+
+    printf("--- Compound Interest Calculator ---\n");
+
+    // Input values
+    printf("Enter Principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Enter Annual Interest Rate (in %%): ");
+    scanf("%f", &rate);
+
+    printf("Enter Time (in years): ");
+    scanf("%f", &time);
+
+    printf("Enter number of times interest is compounded per year: ");
+    scanf("%f", &n);
+
+    // Convert rate from percentage to decimal
+    float r = rate / 100;
+
+    // Compound Interest Formula: A = P(1 + r/n)^(nt)
+    amount = principal * pow((1 + r / n), (n * time));
+    ci = amount - principal;
+
+    // Display Results
+    printf("\n--- Financial Summary ---\n");
+    printf("Total Amount after %.1f years: %.2f\n", time, amount);
+    printf("Compound Interest Earned   : %.2f\n", ci);
+    printf("--------------------------\n");
+
+    return 0;
+}
