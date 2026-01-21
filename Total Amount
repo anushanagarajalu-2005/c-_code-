@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int items, i;
+    float price, qty, total = 0;
+
+    printf("Enter number of items: ");
+    scanf("%d", &items);
+
+    for(i = 1; i <= items; i++) {
+        printf("Enter price of item %d: ", i);
+        scanf("%f", &price);
+
+        printf("Enter quantity of item %d: ", i);
+        scanf("%f", &qty);
+
+        total += price * qty;  
+    }
+
+    printf("\nTotal Bill Amount = %.2f\n", total);
+
+    return 0;
+}
+o/p:
+     Enter number of items: 3
+Enter price of item 1: 20
+Enter quantity of item 1: 2
+Enter price of item 2: 15.5
+Enter quantity of item 2: 3
+Enter price of item 3: 10
+Enter quantity of item 3: 1
+
+Total Bill Amount = 96.50
