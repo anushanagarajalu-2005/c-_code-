@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+int main() {
+    float income, rent, food, transport, bills, total_expenses, savings;
+    float savings_percent;
+
+    printf("--- Monthly Savings Report Generator ---\n");
+
+    // Input Income
+    printf("Enter total monthly income: $");
+    scanf("%f", &income);
+
+    // Input Expenses
+    printf("\nEnter expenses for the following:\n");
+    printf("Rent/Mortgage : $");
+    scanf("%f", &rent);
+    printf("Food/Groceries: $");
+    scanf("%f", &food);
+    printf("Transportation: $");
+    scanf("%f", &transport);
+    printf("Utility Bills : $");
+    scanf("%f", &bills);
+
+    // Calculations
+    total_expenses = rent + food + transport + bills;
+    savings = income - total_expenses;
+    savings_percent = (savings / income) * 100;
+
+    // Output Report
+    printf("\n====================================\n");
+    printf("       MONTHLY FINANCIAL REPORT       \n");
+    printf("====================================\n");
+    printf("Total Income     :  $%.2f\n", income);
+    printf("Total Expenses   : -$%.2f\n", total_expenses);
+    printf("------------------------------------\n");
+    printf("NET SAVINGS      :  $%.2f\n", savings);
+    printf("Savings Rate     :  %.1f%%\n", savings_percent);
+    printf("------------------------------------\n");
+
+    // Advice based on savings percentage
+    if (savings > 0) {
+        if (savings_percent >= 20) {
+            printf("Status: Excellent Saving Habits!\n");
+        } else {
+            printf("Status: Good, but try to reduce expenses.\n");
+        }
+    } else if (savings == 0) {
+        printf("Status: You are breaking even exactly.\n");
+    } else {
+        printf("Status: WARNING! You are in debt by $%.2f\n", -savings);
+    }
+    printf("====================================\n");
+
+    return 0;
+}
+o/p:
+--- Monthly Savings Report Generator ---
+Enter total monthly income: $1500
+
+Enter expenses for the following:
+Rent/Mortgage : $500
+Food/Groceries: $300
+Transportation: $200
+Utility Bills : $200
+
+====================================
+       MONTHLY FINANCIAL REPORT       
+====================================
+Total Income     :  $1500.00
+Total Expenses   : -$1200.00
+------------------------------------
+NET SAVINGS      :  $300.00
+Savings Rate     :  20.0%
+------------------------------------
+Status: Excellent Saving Habits!
+====================================
