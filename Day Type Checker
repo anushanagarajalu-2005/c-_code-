@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    int day;
+
+    printf("--- Day Type Checker ---\n");
+    printf("1. Monday\n2. Tuesday\n3. Wednesday\n4. Thursday\n5. Friday\n6. Saturday\n7. Sunday\n");
+    printf("Enter day number (1-7): ");
+    scanf("%d", &day);
+
+    // Using switch-case to categorize the input
+    switch (day) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            printf("\nIt's a Working Day. Time to be productive!\n");
+            break;
+            
+        case 6:
+        case 7:
+            printf("\nIt's the Weekend! Time to relax.\n");
+            break;
+            
+        default:
+            printf("\nInvalid input! Please enter a number between 1 and 7.\n");
+    }
+
+    return 0;
+}
+o/p:
+--- Day Type Checker ---
+1. Monday
+2. Tuesday
+3. Wednesday
+4. Thursday
+5. Friday
+6. Saturday
+7. Sunday
+Enter day number (1-7): 3
+
+It's a Working Day. Time to be productive!
