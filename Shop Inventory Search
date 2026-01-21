@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int total_items = 7;
+    int search_id, found = 0;
+
+    printf("--- Shop Inventory Search ---\n");
+    printf("We have %d items in stock (IDs 1 to %d).\n", total_items, total_items);
+    
+    // Input the Item ID to search
+    printf("Enter the Item ID you are looking for: ");
+    scanf("%d", &search_id);
+
+    // Linear Search Logic
+    // We check if the ID exists within the array bounds
+    for (int i = 0; i < total_items; i++) {
+        if (search_id == (i + 1)) { // i+1 because IDs start at 1 while index starts at 0
+            printf("\nItem Found!");
+            printf("\nItem ID: %d", search_id);
+            printf("\nPrice  : $%.2f\n", shop_prices[i]);
+            found = 1;
+            break; // Exit loop once item is found
+        }
+    }
+
+    if (!found) {
+        printf("\nSorry, Item ID %d is not available in our shop.\n", search_id);
+    }
+
+    return 0;
+}
+o/p:
+--- Shop Inventory Search ---
+We have 7 items in stock (IDs 1 to 7).
+Enter the Item ID you are looking for: 5
+
+Item Found!
+Item ID: 5
+Price  : $45.90
