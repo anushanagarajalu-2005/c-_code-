@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+int main() {
+    int num_items, i;
+    float expenses[50], total = 0.0;
+    char category[50][30]; // To store names of expense categories
+
+    printf("--- Monthly Expense Tracker ---\n");
+
+    // Get the number of expense categories
+    printf("How many expense categories do you have? ");
+    scanf("%d", &num_items);
+
+    // Input Phase
+    for (i = 0; i < num_items; i++) {
+        printf("\nEnter name of category %d (e.g., Rent): ", i + 1);
+        scanf("%s", category[i]);
+        printf("Enter amount for %s: $", category[i]);
+        scanf("%f", &expenses[i]);
+
+        // Add to running total
+        total += expenses[i];
+    }
+
+    // Output Report
+    printf("\n===============================");
+    printf("\n    MONTHLY EXPENSE REPORT     ");
+    printf("\n===============================");
+    printf("\n%-15s %10s", "Category", "Amount");
+    printf("\n-------------------------------");
+
+    for (i = 0; i < num_items; i++) {
+        printf("\n%-15s $%10.2f", category[i], expenses[i]);
+    }
+
+    printf("\n-------------------------------");
+    printf("\nTOTAL EXPENSES:  $%10.2f", total);
+    printf("\n===============================\n");
+    return 0;
+}
+o/p:
+--- Monthly Expense Tracker ---
+How many expense categories do you have? 2
+
+Enter name of category 1 (e.g., Rent): rent
+Enter amount for rent: $6000
+
+Enter name of category 2 (e.g., Rent): food
+Enter amount for food: $500
+
+===============================
+    MONTHLY EXPENSE REPORT     
+===============================
+Category            Amount
+-------------------------------
+rent            $   6000.00
+food            $    500.00
+-------------------------------
+TOTAL EXPENSES:  $   6500.00
+===============================
