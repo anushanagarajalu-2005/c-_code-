@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    unsigned long long factorial = 1; // Using long long for larger results
+
+    printf("--- Factorial Calculator ---\n");
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    // Factorial is not defined for negative numbers
+    if (n < 0) {
+        printf("Error: Factorial of a negative number doesn't exist.\n");
+    } 
+    else {
+        // Loop to multiply numbers from 1 to n
+        for (i = 1; i <= n; i++) {
+            factorial *= i;  // Same as: factorial = factorial * i
+        }
+        
+        printf("Factorial of %d = %llu\n", n, factorial);
+    }
+
+    return 0;
+}
+o/p:
+--- Factorial Calculator ---
+Enter a positive integer: 5
+Factorial of 5 = 120
