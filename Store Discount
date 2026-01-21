@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    float amount, discount, final_price;
+
+    printf("--- Store Discount Portal ---\n");
+
+    // Input the total bill amount
+    printf("Enter total shopping amount: $");
+    scanf("%f", &amount);
+
+    // Check if the customer qualifies for a discount (Threshold: $500)
+    if (amount >= 500) {
+        discount = amount * 0.10; // 10% discount
+        final_price = amount - discount;
+
+        printf("\nCongratulations! You qualify for a 10%% discount.");
+        printf("\nDiscount amount: $%.2f", discount);
+        printf("\nFinal amount to pay: $%.2f\n", final_price);
+    } 
+    else {
+        printf("\nNo discount applied (Minimum purchase of $500 required).");
+        printf("\nAmount to pay: $%.2f\n", amount);
+        printf("\nSpend $%.2f more to get 10%% off!\n", 500 - amount);
+    }
+
+    return 0;
+}
+o/p:
+--- Store Discount Portal ---
+Enter total shopping amount: $6500
+
+Congratulations! You qualify for a 10% discount.
+Discount amount: $650.00
+Final amount to pay: $5850.00
