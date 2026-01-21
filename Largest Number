@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    float num1, num2, num3;
+
+    printf("--- Largest Number Finder ---\n");
+
+    // Input three numbers
+    printf("Enter three numbers (separated by space): ");
+    scanf("%f %f %f", &num1, &num2, &num3);
+
+    // Comparison logic using logical AND (&&)
+    if (num1 >= num2 && num1 >= num3) {
+        printf("\n%.2f is the largest number.\n", num1);
+    } 
+    else if (num2 >= num1 && num2 >= num3) {
+        printf("\n%.2f is the largest number.\n", num2);
+    } 
+    else {
+        printf("\n%.2f is the largest number.\n", num3);
+    }
+
+    return 0;
+}
+o/p:
+--- Largest Number Finder ---
+Enter three numbers (separated by space): 25.5 89 42.7
+
+89.00 is the largest number.
