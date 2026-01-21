@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+    int total_students, i, status;
+    int present_count = 0;
+
+    printf("--- Classroom Attendance System ---\n");
+
+    // Input total strength of the class
+    printf("Enter the total number of students in the class: ");
+    scanf("%d", &total_students);
+
+    printf("\nInstructions: Enter 1 for PRESENT, 0 for ABSENT\n");
+    printf("--------------------------------------------\n");
+
+    // Loop to collect attendance for each student
+    for (i = 1; i <= total_students; i++) {
+        printf("Roll No %d: ", i);
+        scanf("%d", &status);
+
+        // Check if the student is present
+        if (status == 1) {
+            present_count++;
+        } else if (status != 0) {
+            printf("Invalid input! Please enter 1 or 0.\n");
+            i--; // Decrement i to repeat the input for the same roll number
+        }
+    }
+
+    // Display the final report
+    printf("\n--- Attendance Summary ---\n");
+    printf("Total Students : %d\n", total_students);
+    printf("Students Present: %d\n", present_count);
+    printf("Students Absent : %d\n", total_students - present_count);
+    printf("Attendance %%   : %.2f%%\n", ((float)present_count / total_students) * 100);
+    printf("--------------------------\n");
+
+    return 0;
+}
+o/p:
+--- Classroom Attendance System ---
+Enter the total number of students in the class: 4
+
+Instructions: Enter 1 for PRESENT, 0 for ABSENT
+--------------------------------------------
+Roll No 1: 1
+Roll No 2: 0
+Roll No 3: 0
+Roll No 4: 1
+
+--- Attendance Summary ---
+Total Students : 4
+Students Present: 2
+Students Absent : 2
+Attendance %   : 50.00%
