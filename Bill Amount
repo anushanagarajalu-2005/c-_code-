@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    float units, bill_amount;
+
+    printf("--- Electricity Bill Calculator ---\n");
+    printf("Enter total units consumed: ");
+    scanf("%f", &units);
+
+    // Logic for tiered pricing (Slabs)
+    if (units <= 100) {
+        bill_amount = units * 1.50;
+    } 
+    else if (units <= 300) {
+        bill_amount = (100 * 1.50) + ((units - 100) * 2.00);
+    } 
+    else {
+        bill_amount = (100 * 1.50) + (200 * 2.00) + ((units - 300) * 3.00);
+    }
+
+    // Displaying the final bill
+    printf("\nUnits Consumed: %.2f", units);
+    printf("\nTotal Bill Amount: $%.2f\n", bill_amount);
+
+    return 0;
+}
+o/p:
+--- Electricity Bill Calculator ---
+Enter total units consumed: 350
+
+Units Consumed: 350.00
+Total Bill Amount: $700.00
