@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+    int days, i;
+    float rain[100], sum = 0, average;
+
+    printf("--- Rainfall Statistics Portal ---\n");
+
+    // Get the duration
+    printf("Enter the number of days to calculate for: ");
+    scanf("%d", &days);
+
+    // Input rainfall data for each day
+    printf("\nEnter rainfall in mm for each day:\n");
+    for (i = 0; i < days; i++) {
+        printf("Day %d: ", i + 1);
+        scanf("%f", &rain[i]);
+        
+        // Add current day's rain to total sum
+        sum += rain[i];
+    }
+
+    // Calculate average
+    if (days > 0) {
+        average = sum / days;
+
+        printf("\n--- Results ---\n");
+        printf("Total Rainfall   : %.2f mm\n", sum);
+        printf("Average Rainfall : %.2f mm/day\n", average);
+        printf("----------------\n");
+    } else {
+        printf("Invalid number of days.\n");
+    }
+
+    return 0;
+}
+o/p:
+--- Rainfall Statistics Portal ---
+Enter the number of days to calculate for: 3
+
+Enter rainfall in mm for each day:
+Day 1: 9.0
+Day 2: 19
+Day 3: 8.0
+
+--- Results ---
+Total Rainfall   : 36.00 mm
+Average Rainfall : 12.00 mm/day
