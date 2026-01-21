@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+int main() {
+    int choice;
+
+    printf("--- Welcome to the Quick-Bite Cafe ---\n");
+    printf("1. Burger  ($5.00)\n");
+    printf("2. Pizza   ($8.00)\n");
+    printf("3. Pasta   ($7.00)\n");
+    printf("4. Coffee  ($3.00)\n");
+    printf("5. Exit\n");
+    printf("---------------------------------------\n");
+    
+    printf("Please enter your choice (1-5): ");
+    scanf("%d", &choice);
+
+    // Using switch case to handle menu selection
+    switch (choice) {
+        case 1:
+            printf("\nYou ordered a Burger. That will be $5.00.\n");
+            break;
+        case 2:
+            printf("\nYou ordered a Pizza. That will be $8.00.\n");
+            break;
+        case 3:
+            printf("\nYou ordered Pasta. That will be $7.00.\n");
+            break;
+        case 4:
+            printf("\nYou ordered Coffee. That will be $3.00.\n");
+            break;
+        case 5:
+            printf("\nThank you for visiting! Goodbye.\n");
+            break;
+        default:
+            printf("\nInvalid selection! Please choose an option between 1 and 5.\n");
+    }
+
+    return 0;
+}
+o/p:
+--- Welcome to the Quick-Bite Cafe ---
+1. Burger  ($5.00)
+2. Pizza   ($8.00)
+3. Pasta   ($7.00)
+4. Coffee  ($3.00)
+5. Exit
+---------------------------------------
+Please enter your choice (1-5): 3
+
+You ordered Pasta. That will be $7.00.
