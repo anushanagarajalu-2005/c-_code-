@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    float marks[100], temp;
+
+    printf("--- Student Marks Sorter ---\n");
+
+    // Input number of students
+    printf("Enter the number of students: ");
+    scanf("%d", &n);
+
+    // Input marks
+    printf("Enter marks for %d students:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("Student %d: ", i + 1);
+        scanf("%f", &marks[i]);
+    }
+
+    // Bubble Sort Logic
+    for (i = 0; i < n - 1; i++) {
+        for (j = 0; j < n - i - 1; j++) {
+            // Swap if the current element is greater than the next element
+            if (marks[j] > marks[j + 1]) {
+                temp = marks[j];
+                marks[j] = marks[j + 1];
+                marks[j + 1] = temp;
+            }
+        }
+    }
+
+    // Display sorted marks
+    printf("\nMarks sorted in Ascending Order:\n");
+    printf("--------------------------------\n");
+    for (i = 0; i < n; i++) {
+        printf("%.2f  ", marks[i]);
+    }
+    printf("\n--------------------------------\n");
+
+    return 0;
+}
+o/p:
+--- Student Marks Sorter ---
+Enter the number of students: 4
+Enter marks for 4 students:
+Student 1: 95
+Student 2: 96
+Student 3: 98
+Student 4: 100
+
+Marks sorted in Ascending Order:
+--------------------------------
+95.00  96.00  98.00  100.00  
+-------------------------------
