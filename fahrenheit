@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    float celsius, fahrenheit;
+
+    printf("--- Temperature Converter ---\n");
+
+    // Asking for user input
+    printf("Enter temperature in Celsius: ");
+    scanf("%f", &celsius);
+
+    // Applying the conversion formula
+    // (9.0/5.0) ensures the division is treated as a float
+    fahrenheit = (celsius * 9 / 5) + 32;
+
+    // Displaying the result
+    printf("%.2f Celsius is equal to %.2f Fahrenheit\n", celsius, fahrenheit);
+
+    return 0;
+}
+o/p:
+--- Temperature Converter ---
+Enter temperature in Celsius: 37
+37.00 Celsius is equal to 98.60 Fahrenheit
