@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int num, i;
+
+    printf("--- Multiplication Table Generator ---\n");
+
+    // Input the number for the table
+    printf("Enter the number to generate its table: ");
+    scanf("%d", &num);
+
+    printf("\nMultiplication Table for %d:\n", num);
+    printf("-------------------------------\n");
+
+    // Loop from 1 to 10
+    for (i = 1; i <= 10; i++) {
+        // Calculation and printing in one step
+        printf("%d  x  %d  =  %d\n", num, i, num * i);
+    }
+
+    printf("-------------------------------\n");
+
+    return 0;
+}
+o/p:
+--- Multiplication Table Generator ---
+Enter the number to generate its table: 7
+
+Multiplication Table for 7:
+-------------------------------
+7  x  1  =  7
+7  x  2  =  14
+7  x  3  =  21
+7  x  4  =  28
+7  x  5  =  35
+7  x  6  =  42
+7  x  7  =  49
+7  x  8  =  56
+7  x  9  =  63
+7  x  10  =  70
