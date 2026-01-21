@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    float temp[7];
+    int i;
+    float high, low;
+
+    printf("--- Weekly Temperature Analyzer ---\n");
+
+    // Input temperatures for 7 days
+    for (i = 0; i < 7; i++) {
+        printf("Enter temperature for day %d: ", i + 1);
+        scanf("%f", &temp[i]);
+    }
+
+    // Initialize high and low with the first day's temperature
+    high = temp[0];
+    low = temp[0];
+
+    // Loop through the array to find the extremes
+    for (i = 1; i < 7; i++) {
+        if (temp[i] > high) {
+            high = temp[i]; // Update highest
+        }
+        if (temp[i] < low) {
+            low = temp[i];  // Update lowest
+        }
+    }
+
+    // Display Results
+    printf("\n--- Weather Report ---\n");
+    printf("Highest Temperature of the week: %.2f°C\n", high);
+    printf("Lowest Temperature of the week : %.2f°C\n", low);
+    printf("Temperature Range (High - Low) : %.2f°C\n", high - low);
+    printf("----------------------\n");
+
+    return 0;
+}
+o/p:
+--- Weekly Temperature Analyzer ---
+Enter temperature for day 1: 12
+Enter temperature for day 2: 18
+Enter temperature for day 3: 22
+Enter temperature for day 4: 44
+Enter temperature for day 5: 39
+Enter temperature for day 6: 45
+Enter temperature for day 7: 12
+
+--- Weather Report ---
+Highest Temperature of the week: 45.00°C
+Lowest Temperature of the week : 12.00°C
+Temperature Range (High - Low) : 33.00°C
