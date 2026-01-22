@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+// Defining the structure for Employee
+struct Employee {
+    int id;
+    char name[50];
+    char department[30];
+    float salary;
+};
+
+int main() {
+    // Creating a structure variable
+    struct Employee emp;
+
+    printf("--- Enter Employee Details ---\n");
+
+    printf("Enter Employee ID: ");
+    scanf("%d", &emp.id);
+
+    // Consume the leftover newline character from scanf
+    getchar(); 
+
+    printf("Enter Employee Name: ");
+    fgets(emp.name, sizeof(emp.name), stdin);
+
+    printf("Enter Department: ");
+    fgets(emp.department, sizeof(emp.department), stdin);
+
+    printf("Enter Salary: ");
+    scanf("%f", &emp.salary);
+
+    // Displaying the details
+    printf("\n--- Employee Data Sheet ---\n");
+    printf("ID         : %d\n", emp.id);
+    printf("Name       : %s", emp.name); // fgets includes a newline
+    printf("Department : %s", emp.department);
+    printf("Monthly Pay: $%.2f\n", emp.salary);
+
+    return 0;
+}
+o/p:
+--- Enter Employee Details ---
+Enter Employee ID: 1001
+Enter Employee Name: John
+Enter Department: Human resource
+Enter Salary: 45000
+
+--- Employee Data Sheet ---
+ID         : 1001
+Name       : John
+Department : Human resource
+Monthly Pay: $45000.00
