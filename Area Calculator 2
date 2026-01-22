@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+// Function prototypes
+float areaCircle(float radius);
+float areaRectangle(float length, float width);
+
+int main() {
+    int choice;
+    float r, l, w;
+
+    printf("--- Area Calculator ---\n");
+    printf("1. Area of Circle\n");
+    printf("2. Area of Rectangle\n");
+    printf("Enter choice (1 or 2): ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("Enter radius: ");
+        scanf("%f", &r);
+        // Function call for circle
+        printf("Area of Circle: %.2f\n", areaCircle(r));
+    } 
+    else if (choice == 2) {
+        printf("Enter length and width: ");
+        scanf("%f %f", &l, &w);
+        // Function call for rectangle
+        printf("Area of Rectangle: %.2f\n", areaRectangle(l, w));
+    } 
+    else {
+        printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+
+// Function to calculate Area of Circle: PI * r * r
+float areaCircle(float radius) {
+    return 3.14159 * radius * radius;
+}
+
+// Function to calculate Area of Rectangle: L * W
+float areaRectangle(float length, float width) {
+    return length * width;
+}
+o/p:
+--- Area Calculator ---
+1. Area of Circle
+2. Area of Rectangle
+Enter choice (1 or 2): 1
+Enter radius: 5
+Area of Circle: 78.54
+
+
+--- Area Calculator ---
+1. Area of Circle
+2. Area of Rectangle
+Enter choice (1 or 2): 2
+Enter length and width: 10 5.5
+Area of Rectangle: 55.00
