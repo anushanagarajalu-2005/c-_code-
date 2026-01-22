@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+    int days, i;
+    float sales[31]; // Array to store up to a month's sales
+    float totalSales = 0.0, averageSales;
+
+    printf("Enter the number of days: ");
+    scanf("%d", &days);
+
+    // Input loop
+    for (i = 0; i < days; i++) {
+        printf("Enter sales for Day %d: ", i + 1);
+        scanf("%f", &sales[i]);
+        totalSales += sales[i]; // Add current sale to total
+    }
+
+    // Calculate average
+    averageSales = totalSales / days;
+
+    // Display Sales Report
+    printf("\n--- DAILY SALES REPORT ---\n");
+    printf("Day\t\tSales Amount\n");
+    printf("--------------------------\n");
+    
+    for (i = 0; i < days; i++) {
+        printf("Day %d\t\t$%.2f\n", i + 1, sales[i]);
+    }
+
+    printf("--------------------------\n");
+    printf("Total Sales:    $%.2f\n", totalSales);
+    printf("Average Sale:   $%.2f\n", averageSales);
+    printf("--------------------------\n");
+
+    return 0;
+}
+o/p:
+Enter the number of days: 5
+Enter sales for Day 1: 150
+Enter sales for Day 2: 200
+Enter sales for Day 3: 250
+Enter sales for Day 4: 300
+Enter sales for Day 5: 350
+
+--- DAILY SALES REPORT ---
+Day		Sales Amount
+--------------------------
+Day 1		$150.00
+Day 2		$200.00
+Day 3		$250.00
+Day 4		$300.00
+Day 5		$350.00
+--------------------------
+Total Sales:    $1250.00
+Average Sale:   $250.00
