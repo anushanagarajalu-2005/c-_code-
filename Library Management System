@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+
+// Defining the structure for Book
+struct Book {
+    char title[100];
+    char author[50];
+    float price;
+    int pages;
+};
+
+int main() {
+    struct Book b1;
+
+    printf("--- Library Management System ---\n");
+
+    printf("Enter Book Title: ");
+    fgets(b1.title, sizeof(b1.title), stdin);
+    b1.title[strcspn(b1.title, "\n")] = 0; // Remove newline
+
+    printf("Enter Author Name: ");
+    fgets(b1.author, sizeof(b1.author), stdin);
+    b1.author[strcspn(b1.author, "\n")] = 0; // Remove newline
+
+    printf("Enter Price: ");
+    scanf("%f", &b1.price);
+
+    printf("Enter Number of Pages: ");
+    scanf("%d", &b1.pages);
+
+    // Displaying the details
+    printf("\n--- Book Details Saved ---\n");
+    printf("Title  : %s\n", b1.title);
+    printf("Author : %s\n", b1.author);
+    printf("Price  : $%.2f\n", b1.price);
+    printf("Pages  : %d\n", b1.pages);
+    printf("---------------------------\n");
+
+    return 0;
+}
+o/p:
+--- Library Management System ---
+Enter Book Title: java
+Enter Author Name: james gosling
+Enter Price: 25.00
+Enter Number of Pages: 120
+
+--- Book Details Saved ---
+Title  : java
+Author : james gosling
+Price  : $25.00
+Pages  : 120
+---------------------------
