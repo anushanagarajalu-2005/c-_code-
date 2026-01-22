@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+// Function declaration (Prototype)
+float calculateSimpleInterest(float p, float r, float t);
+
+int main() {
+    float principal, rate, time, interest;
+
+    printf("--- Simple Interest Calculator ---\n");
+    
+    printf("Enter Principal amount: ");
+    scanf("%f", &principal);
+    
+    printf("Enter Rate of interest (%%): ");
+    scanf("%f", &rate);
+    
+    printf("Enter Time (in years): ");
+    scanf("%f", &time);
+
+    // Function call
+    interest = calculateSimpleInterest(principal, rate, time);
+
+    printf("\n--- Results ---\n");
+    printf("Principal: %.2f\n", principal);
+    printf("Interest Amount: %.2f\n", interest);
+    printf("Total Amount (P + I): %.2f\n", principal + interest);
+
+    return 0;
+}
+
+// Function definition
+float calculateSimpleInterest(float p, float r, float t) {
+    return (p * r * t) / 100;
+}
+o/p:
+--- Simple Interest Calculator ---
+Enter Principal amount: 1000
+Enter Rate of interest (%): 5.5
+Enter Time (in years): 2
+
+--- Results ---
+Principal: 1000.00
+Interest Amount: 110.00
+Total Amount (P + I): 1110.00
