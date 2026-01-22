@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store patient information
+struct Patient {
+    int id;
+    char name[50];
+    int age;
+    char disease[50];
+    char roomNumber[10];
+};
+
+int main() {
+    int n, i;
+
+    printf("Hospital Management System\n");
+    printf("--------------------------\n");
+    printf("Enter the number of patients to register: ");
+    scanf("%d", &n);
+
+    // Create an array of structures
+    struct Patient p[n];
+
+    // Input patient details
+    for(i = 0; i < n; i++) {
+        printf("\nEnter details for Patient %d\n", i + 1);
+        
+        printf("Patient ID: ");
+        scanf("%d", &p[i].id);
+        
+        // Use getchar() to clear the newline character from the buffer
+        getchar(); 
+        
+        printf("Full Name: ");
+        fgets(p[i].name, 50, stdin);
+        p[i].name[strcspn(p[i].name, "\n")] = 0; // Remove trailing newline
+
+        printf("Age: ");
+        scanf("%d", &p[i].age);
+
+        getchar();
+        printf("Disease/Diagnosis: ");
+        fgets(p[i].disease, 50, stdin);
+        p[i].disease[strcspn(p[i].disease, "\n")] = 0;
+
+        printf("Room Number: ");
+        scanf("%s", p[i].roomNumber);
+    }
+
+    // Displaying the records
+    printf("\n--- Recorded Patient Details ---\n");
+    printf("%-5s %-20s %-5s %-15s %-10s\n", "ID", "Name", "Age", "Disease", "Room");
+    printf("------------------------------------------------------------\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%-5d %-20s %-5d %-15s %-10s\n", 
+               p[i].id, p[i].name, p[i].age, p[i].disease, p[i].roomNumber);
+    }
+
+    return 0;
+}
+o/p:
+Hospital Management System
+--------------------------
+Enter the number of patients to register: 1
+
+Enter details for Patient 1
+Patient ID: 101
+Full Name: Anisha
+Age: 20
+Disease/Diagnosis: fever
+Room Number: A-12
+
+--- Recorded Patient Details ---
+ID    Name                 Age   Disease         Room      
+------------------------------------------------------------
+101   Anisha               20    fever           A-12      
+
