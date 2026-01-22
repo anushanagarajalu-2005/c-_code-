@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+// Function declaration (Prototype)
+float calculateAverage(float sum, int count);
+
+int main() {
+    int n, i;
+    float number, sum = 0, average;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Handling the case where n is 0 or negative
+    if (n <= 0) {
+        printf("Error: Number of elements must be greater than 0.\n");
+        return 1;
+    }
+
+    for (i = 1; i <= n; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%f", &number);
+        sum += number; // Adding each number to the total sum
+    }
+
+    // Function call
+    average = calculateAverage(sum, n);
+
+    printf("\n--- Result ---\n");
+    printf("Sum: %.2f\n", sum);
+    printf("Average: %.2f\n", average);
+
+    return 0;
+}
+
+// Function definition
+float calculateAverage(float s, int c) {
+    return s / c; // Average = Total Sum / Total Count
+}
+o/p:
+Enter the number of elements: 3
+Enter number 1: 10
+Enter number 2: 20
+Enter number 3: 30.5
+
+--- Result ---
+Sum: 60.50
+Average: 20.17
