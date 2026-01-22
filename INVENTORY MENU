@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store product details
+struct Product {
+    int id;
+    char name[50];
+    int quantity;
+    float price;
+};
+
+int main() {
+    struct Product inventory[100]; // Can store up to 100 products
+    int count = 0;
+    int choice;
+
+    while (1) {
+        printf("\n--- INVENTORY MENU ---\n");
+        printf("1. Add New Product\n");
+        printf("2. View All Products\n");
+        printf("3. Calculate Total Value\n");
+        printf("4. Exit\n");
+        printf("Enter choice (1-4): ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                if (count < 100) {
+                    printf("\nEnter Product ID: ");
+                    scanf("%d", &inventory[count].id);
+
+                    getchar(); // Clear the newline character from the buffer
+                    printf("Enter Product Name: ");
+                    fgets(inventory[count].name, 50, stdin);
+                    inventory[count].name[strcspn(inventory[count].name, "\n")] = 0;
+
+                    printf("Enter Quantity: ");
+                    scanf("%d", &inventory[count].quantity);
+
+                    printf("Enter Price: ");
+                    scanf("%f", &inventory[count].price);
+
+                    count++;
+                    printf("Product added successfully!\n");
+                } else {
+                    printf("Inventory full!\n");
+                }
+                break;
+
+            case 2:
+                if (count == 0) {
+                    printf("\nInventory is empty!\n");
+                } else {
+                    printf("\n%-10s %-20s %-10s %-10s\n", "ID", "Name", "Qty", "Price");
+                    printf("----------------------------------------------------\n");
+                    for (int i = 0; i < count; i++) {
+                        printf("%-10d %-20s %-10d $%-10.2f\n", 
+                               inventory[i].id, inventory[i].name, 
+                               inventory[i].quantity, inventory[i].price);
+                    }
+                }
+                break;
+
+            case 3:
+                {
+                    float totalValue = 0;
+                    for (int i = 0; i < count; i++) {
+                        totalValue += inventory[i].quantity * inventory[i].price;
+                    }
+                    printf("\nTotal Inventory Value: $%.2f\n", totalValue);
+                }
+                break;
+
+            case 4:
+                printf("Exiting...\n");
+                return 0;
+
+            default:
+                printf("Invalid choice! Please enter 1-4.\n");
+        }
+    }
+    return 0;
+}
+o/p:
+--- INVENTORY MENU ---
+1. Add New Product
+2. View All Products
+3. Calculate Total Value
+4. Exit
+Enter choice (1-4): 1
+
+Enter Product ID: 101
+Enter Product Name: Wireless Mouse
+Enter Quantity: 20
+Enter Price: 15.50
+Product added successfully!
+
+--- INVENTORY MENU ---
+1. Add New Product
+2. View All Products
+3. Calculate Total Value
+4. Exit
+Enter choice (1-4): 2
+
+ID         Name                 Qty        Price     
+----------------------------------------------------
+101        Wireless Mouse       20         $15.50
