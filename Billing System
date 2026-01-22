@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+// Function declaration
+float calculateBill(float price, int qty);
+
+int main() {
+    char itemName[30];
+    float unitPrice, finalAmount;
+    int quantity;
+
+    printf("--- Billing System ---\n");
+    printf("Enter item name: ");
+    scanf("%s", itemName);
+    
+    printf("Enter unit price: ");
+    scanf("%f", &unitPrice);
+    
+    printf("Enter quantity: ");
+    scanf("%d", &quantity);
+
+    // Function call
+    finalAmount = calculateBill(unitPrice, quantity);
+
+    printf("\n--- Final Invoice ---\n");
+    printf("Item: %s\n", itemName);
+    printf("Unit Price: %.2f\n", unitPrice);
+    printf("Quantity: %d\n", quantity);
+    printf("----------------------\n");
+    printf("Total Bill (incl. 5%% tax): %.2f\n", finalAmount);
+    printf("----------------------\n");
+
+    return 0;
+}
+
+// Function definition
+float calculateBill(float price, int qty) {
+    float subtotal = price * qty;
+    float tax = subtotal * 0.05; // 5% tax
+    return subtotal + tax;
+}
+o/p:
+--- Billing System ---
+Enter item name: Laptops
+Enter unit price: 6000
+Enter quantity: 2
+
+--- Final Invoice ---
+Item: Laptops
+Unit Price: 6000.00
+Quantity: 2
+----------------------
+Total Bill (incl. 5% tax): 12600.00
+----------------------
