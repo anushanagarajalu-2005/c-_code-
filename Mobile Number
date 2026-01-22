@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char mobile[20];
+    int i, isValid = 1;
+
+    printf("Enter Mobile Number: ");
+    scanf("%s", mobile);
+
+    int length = strlen(mobile);
+
+    // 1. Check if the length is exactly 10
+    if (length != 10) {
+        isValid = 0;
+        printf("Error: Mobile number must be exactly 10 digits.\n");
+    } 
+    else {
+        // 2. Check if the first digit is valid (between 6 and 9)
+        if (mobile[0] < '6' || mobile[0] > '9') {
+            isValid = 0;
+            printf("Error: Mobile number should start with 6, 7, 8, or 9.\n");
+        }
+        
+        // 3. Check if all characters are digits
+        for (i = 0; i < length; i++) {
+            if (!isdigit(mobile[i])) {
+                isValid = 0;
+                printf("Error: Mobile number must contain only digits.\n");
+                break;
+            }
+        }
+    }
+
+    if (isValid) {
+        printf("Success: '%s' is a valid mobile number.\n", mobile);
+    } else {
+        printf("Validation Failed!\n");
+    }
+
+    return 0;
+}
+o/p:
+Enter Mobile Number: 9042298893
+9042298893
+Success: '9042298893' is a valid mobile number.
