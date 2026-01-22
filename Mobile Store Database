@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store mobile details
+struct Mobile {
+    char brand[30];
+    char model[30];
+    int storage; // in GB
+    int ram;     // in GB
+    float price;
+};
+
+int main() {
+    int n, i;
+
+    printf("Mobile Store Database\n");
+    printf("=====================\n");
+    printf("Enter the number of mobiles to register: ");
+    scanf("%d", &n);
+
+    // Array of structures
+    struct Mobile m[n];
+
+    for(i = 0; i < n; i++) {
+        printf("\nEnter details for Mobile %d\n", i + 1);
+        
+        getchar(); // Clear buffer
+        printf("Brand Name: ");
+   
+fgets(m[i].brand, 30, stdin);
+        m[i].brand[strcspn(m[i].brand, "\n")] = 0;
+
+        printf("Model Name: ");
+        fgets(m[i].model, 30, stdin);
+        m[i].model[strcspn(m[i].model, "\n")] = 0;
+
+        printf("Storage (GB): ");
+        scanf("%d", &m[i].storage);
+
+        printf("RAM (GB): ");
+        scanf("%d", &m[i].ram);
+
+        printf("Price ($): ");
+        scanf("%f", &m[i].price);
+    }
+
+    // Displaying the table
+    printf("\n--- Mobile Stock List ---\n");
+    printf("%-15s %-15s %-10s %-10s %-10s\n", "Brand", "Model", "Storage", "RAM", "Price");
+    printf("------------------------------------------------------------\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%-15s %-15s %-d GB    %-d GB    $%-10.2f\n", 
+               m[i].brand, m[i].model, m[i].storage, m[i].ram, m[i].price);
+    }
+
+    return 0;
+}
+o/p:
+Enter the number of mobiles to register: 2
+
+Enter details for Mobile 1
+Brand Name: Apple
+Model Name: iPhone 15
+Storage (GB): 128
+RAM (GB): 6
+Price ($): 799.00
+
+Enter details for Mobile 2
+Brand Name: Samsung
+Model Name: Galaxy S23
+Storage (GB): 256
+RAM (GB): 8
+Price ($): 850.00
+
+--- Mobile Stock List ---
+Brand           Model           Storage    RAM        Price     
+------------------------------------------------------------
+Apple           iPhone 15       128 GB    6 GB      $799.00    
+Samsung         Galaxy S23      256 GB    8 GB      $850.00
