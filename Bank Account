@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+
+// Defining the structure for Bank Account
+struct BankAccount {
+    int accNum;
+    char holderName[50];
+    float balance;
+};
+
+// Function prototype
+void displayAccount(struct BankAccount acc);
+
+int main() {
+    struct BankAccount myAcc;
+    float depositAmount;
+
+    printf("--- Open New Bank Account ---\n");
+    printf("Enter Account Number: ");
+    scanf("%d", &myAcc.accNum);
+    
+    // Clear buffer for string input
+    getchar(); 
+
+    printf("Enter Account Holder Name: ");
+    fgets(myAcc.holderName, sizeof(myAcc.holderName), stdin);
+    // Remove newline from fgets
+    myAcc.holderName[strcspn(myAcc.holderName, "\n")] = 0;
+
+    printf("Enter Initial Deposit: ");
+    scanf("%f", &myAcc.balance);
+
+    printf("\n--- Account Created Successfully ---\n");
+    displayAccount(myAcc);
+
+    // Simple transaction: Deposit
+    printf("\nEnter amount to deposit: ");
+    scanf("%f", &depositAmount);
+    myAcc.balance += depositAmount;
+
+    printf("\n--- Updated Details ---\n");
+    displayAccount(myAcc);
+
+    return 0;
+}
+
+// Function to display details
+void displayAccount(struct BankAccount acc) {
+    printf("----------------------------\n");
+    printf("Acc No  : %d\n", acc.accNum);
+    printf("Holder  : %s\n", acc.holderName);
+    printf("Balance : $%.2f\n", acc.balance);
+    printf("----------------------------\n");
+}
+o/p:
+-------------------------
+
+Enter amount to deposit: 250
+
+--- Updated Details ---
+----------------------------
+Acc No  : 96478
+Holder  : anusha
+Balance : $750.00
+----------------------------
