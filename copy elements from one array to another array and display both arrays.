@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int main() {
+    int arr1[100], arr2[100];
+    int n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Input elements into the first array
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        printf("Element %d: ", i);
+        scanf("%d", &arr1[i]);
+    }
+
+    // Copying elements from arr1 to arr2
+    for (i = 0; i < n; i++) {
+        arr2[i] = arr1[i];
+    }
+
+    // Displaying the Original Array
+    printf("\nOriginal Array (arr1): ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr1[i]);
+    }
+
+    // Displaying the Copied Array
+    printf("\nCopied Array   (arr2): ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr2[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+o/p:
+Enter the number of elements: 5
+Enter 5 elements:
+Element 0: 10
+Element 1: 20
+Element 2: 30
+Element 3: 40
+Element 4: 50
+
+Original Array (arr1): 10 20 30 40 50 
+Copied Array   (arr2): 10 20 30 40 50 
