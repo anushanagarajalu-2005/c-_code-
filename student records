@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+// Defining a structure for a Student record
+struct Student {
+    int rollNo;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student s[100];
+    int n, i, recordCount = 0;
+
+    printf("How many student records do you want to enter? ");
+    scanf("%d", &n);
+
+    // Input loop
+    for (i = 0; i < n; i++) {
+        printf("\nEntering details for Record %d\n", i + 1);
+        
+        printf("Enter Roll No: ");
+        scanf("%d", &s[i].rollNo);
+        
+        printf("Enter Name: ");
+        scanf("%s", s[i].name);
+        
+        printf("Enter Marks: ");
+        scanf("%f", &s[i].marks);
+
+        // Increment the counter for each successful entry
+        recordCount++;
+    }
+
+    // Displaying the results
+    printf("\n------------------------------------");
+    printf("\nTotal Records Processed: %d", recordCount);
+    printf("\n------------------------------------\n");
+
+    // Optional: Displaying the stored records
+    for (i = 0; i < recordCount; i++) {
+        printf("Record %d: %s (Roll: %d)\n", i + 1, s[i].name, s[i].rollNo);
+    }
+
+    return 0;
+}
+o/p:
+How many student records do you want to enter? 2
+
+Entering details for Record 1
+Enter Roll No: 10
+Enter Name: rahul
+Enter Marks: 85
+
+Entering details for Record 2
+Enter Roll No: 11
+Enter Name: mani
+Enter Marks: 90
+
+------------------------------------
+Total Records Processed: 2
+------------------------------------
+Record 1: rahul (Roll: 10)
+Record 2: mani (Roll: 11)
