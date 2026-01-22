@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int length = 0;
+
+    printf("Enter a string: ");
+    // Using fgets to include strings with spaces
+    fgets(str, sizeof(str), stdin);
+
+    // Loop until we find the null character '\0'
+    while (str[length] != '\0') {
+        // fgets adds a newline '\n' at the end; we should skip it
+        if (str[length] == '\n') {
+            break;
+        }
+        length++;
+    }
+
+    printf("The length of the string is: %d\n", length);
+
+    return 0;
+}
+o/p:
+Enter a string: Gemini
+The length of the string is: 6
