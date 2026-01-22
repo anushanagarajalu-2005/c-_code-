@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store course details
+struct Course {
+    char code[10];
+    char title[50];
+    int credits;
+    char instructor[50];
+};
+
+int main() {
+    int n, i;
+
+    printf("University Course Management\n");
+    printf("============================\n");
+    printf("Enter the number of courses: ");
+    scanf("%d", &n);
+
+    // Array of structures to store 'n' courses
+    struct Course c[n];
+
+    // Input loop
+    for(i = 0; i < n; i++) {
+        printf("\nEnter details for Course %d\n", i + 1);
+        
+        printf("Course Code (e.g., CS101): ");
+        scanf("%s", c[i].code);
+        
+        getchar(); // Clear newline buffer
+        
+        printf("Course Title: ");
+        fgets(c[i].title, 50, stdin);
+        c[i].title[strcspn(c[i].title, "\n")] = 0; // Remove newline
+
+        printf("Credits: ");
+        scanf("%d", &c[i].credits);
+
+        getchar(); // Clear buffer
+        printf("Instructor Name: ");
+        fgets(c[i].instructor, 50, stdin);
+        c[i].instructor[strcspn(c[i].instructor, "\n")] = 0;
+    }
+
+    // Displaying the records
+    printf("\n--- Course Catalog ---\n");
+    printf("%-10s %-25s %-8s %-20s\n", "Code", "Course Title", "Credits", "Instructor");
+    printf("----------------------------------------------------------------------\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%-10s %-25s %-8d %-20s\n", 
+               c[i].code, c[i].title, c[i].credits, c[i].instructor);
+    }
+
+    return 0;
+}
+o/p:
+University Course Management
+============================
+Enter the number of courses: 2
+
+Enter details for Course 1
+Course Code (e.g., CS101): CS101
+Course Title: Introduction to C
+Credits: 4
+Instructor Name: Dr. Alan Turing
+
+Enter details for Course 2
+Course Code (e.g., CS101): MATH202
+Course Title: Discrete Mathematics
+Credits: 3
+Instructor Name: Prof. Grace Hopper
+
+--- Course Catalog ---
+Code       Course Title              Credits  Instructor          
+----------------------------------------------------------------------
+CS101      Introduction to C         4        Dr. Alan Turing     
+MATH202    Discrete Mathematics      3        Prof. Grace Hopper
