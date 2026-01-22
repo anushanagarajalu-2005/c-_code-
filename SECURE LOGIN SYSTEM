@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+// Defining a structure to hold the "database" credentials
+struct User {
+    char username[30];
+    char password[30];
+};
+
+int main() {
+    // Initializing the "saved" credentials
+    struct User savedUser = {"admin", "pass123"};
+    
+    char inputUser[30];
+    char inputPass[30];
+
+    printf("=== SECURE LOGIN SYSTEM ===\n");
+
+    printf("Enter Username: ");
+    scanf("%s", inputUser);
+
+    printf("Enter Password: ");
+    scanf("%s", inputPass);
+
+    // strcmp returns 0 ONLY if the strings match perfectly
+    if (strcmp(inputUser, savedUser.username) == 0 && 
+        strcmp(inputPass, savedUser.password) == 0) {
+        
+        printf("\n[SUCCESS] Login Verified. Access Granted.\n");
+    } else {
+        printf("\n[ERROR] Invalid credentials. Access Denied.\n");
+    }
+
+    return 0;
+}
+o/p:
+=== SECURE LOGIN SYSTEM ===
+Enter Username: admin
+Enter Password: pass123
+
+[SUCCESS] Login Verified. Access Granted.
