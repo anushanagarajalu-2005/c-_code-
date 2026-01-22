@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <string.h>
+
+// Defining the structure
+struct Customer {
+    int id;
+    char name[50];
+    char mobile[15];
+};
+
+int main() {
+    int n, i, searchId, found = 0;
+    struct Customer c[50];
+
+    printf("Enter the number of customers: ");
+    scanf("%d", &n);
+
+    // Input customer details
+    for (i = 0; i < n; i++) {
+        printf("\nEnter details for Customer %d\n", i + 1);
+        printf("Customer ID: ");
+        scanf("%d", &c[i].id);
+        
+        getchar(); // Clear newline buffer
+        printf("Name: ");
+        fgets(c[i].name, sizeof(c[i].name), stdin);
+        c[i].name[strcspn(c[i].name, "\n")] = 0; // Remove trailing newline
+
+        printf("Mobile Number: ");
+        scanf("%s", c[i].mobile);
+    }
+
+    // Search Logic
+    printf("\n--- Search Section ---\n");
+    printf("Enter Customer ID to search: ");
+    scanf("%d", &searchId);
+
+    for (i = 0; i < n; i++) {
+        if (c[i].id == searchId) {
+            printf("\nCustomer Found!");
+            printf("\nID: %d", c[i].id);
+            printf("\nName: %s", c[i].name);
+            printf("\nMobile: %s\n", c[i].mobile);
+            found = 1;
+            break; // Exit loop once found
+        }
+    }
+
+    if (!found) {
+        printf("\nCustomer with ID %d not found.\n", searchId);
+    }
+
+    return 0;
+}
+o/p:
+Enter the number of customers: 2
+
+Enter details for Customer 1
+Customer ID: 101
+Name: anu
+Mobile Number: 9042298893
+
+Enter details for Customer 2
+Customer ID: 102
+Name: ani
+Mobile Number: 9042105120
+
+--- Search Section ---
+Enter Customer ID to search: 101
+
+Customer Found!
+ID: 101
+Name: anu
+Mobile: 9042298893
