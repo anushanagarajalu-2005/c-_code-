@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str1[100], str2[100];
+    int i = 0, flags = 0;
+
+    printf("Enter first string: ");
+    scanf("%s", str1);
+    printf("Enter second string: ");
+    scanf("%s", str2);
+
+    // Compare characters one by one
+    while (str1[i] != '\0' || str2[i] != '\0') {
+        if (str1[i] != str2[i]) {
+            flags = 1;
+            break;
+        }
+        i++;
+    }
+
+    printf("\n--- Comparison Result ---\n");
+    if (flags == 0) {
+        printf("The strings are identical.\n");
+    } else {
+        printf("The strings are different.\n");
+    }
+
+    return 0;
+}
+o/p:
+Enter first string: Hello
+Enter second string: Hello
+
+--- Comparison Result ---
+The strings are identical.
