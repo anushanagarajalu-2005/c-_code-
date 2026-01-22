@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store product information
+struct Product {
+    int id;
+    char name[50];
+    float price;
+    int quantity;
+};
+
+int main() {
+    int n, i;
+
+    printf("Inventory Management System\n");
+    printf("===========================\n");
+    printf("Enter the number of products to add: ");
+    scanf("%d", &n);
+
+    // Array of structures to store 'n' products
+    struct Product p[n];
+
+    // Input loop
+    for(i = 0; i < n; i++) {
+        printf("\nEnter details for Product %d\n", i + 1);
+        
+        printf("Product ID: ");
+        scanf("%d", &p[i].id);
+        
+        // Clear buffer before reading string with spaces
+        getchar(); 
+        
+        printf("Product Name: ");
+        fgets(p[i].name, 50, stdin);
+        p[i].name[strcspn(p[i].name, "\n")] = 0; // Remove newline character
+
+        printf("Price per unit: ");
+        scanf("%f", &p[i].price);
+
+        printf("Quantity in Stock: ");
+        scanf("%d", &p[i].quantity);
+    }
+
+    // Output loop - Displaying products in a table
+    printf("\n--- Current Inventory List ---\n");
+    printf("%-10s %-20s %-10s %-10s %-10s\n", "ID", "Product Name", "Price", "Qty", "Total Value");
+    printf("----------------------------------------------------------------------\n");
+
+    for(i = 0; i < n; i++) {
+        float totalValue = p[i].price * p[i].quantity;
+        printf("%-10d %-20s $%-9.2f %-10d $%-10.2f\n", 
+               p[i].id, p[i].name, p[i].price, p[i].quantity, totalValue);
+    }
+
+    return 0;
+}
+o/p:
+Inventory Management System
+===========================
+Enter the number of products to add: 1
+
+Enter details for Product 1
+Product ID: 101
+Product Name: wireless mouse
+Price per unit: 25.00
+Quantity in Stock: 40
+
+--- Current Inventory List ---
+ID         Product Name         Price      Qty        Total Value
+----------------------------------------------------------------------
+101        wireless mouse       $25.00     40         $1000.00   
