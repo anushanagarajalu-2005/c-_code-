@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+// Define a structure for a Product
+struct Product {
+    int id;
+    char name[50];
+};
+
+int main() {
+    struct Product p[100]; // Array with capacity for 100 records
+    int currentCount = 0;
+    int choice, i;
+
+    // Initial records
+    printf("Enter number of initial products: ");
+    scanf("%d", &currentCount);
+
+    for (i = 0; i < currentCount; i++) {
+        printf("Enter ID for product %d: ", i + 1);
+        scanf("%d", &p[i].id);
+        printf("Enter Name for product %d: ", i + 1);
+        scanf("%s", p[i].name);
+    }
+
+    // Adding a new record
+    printf("\n--- Add New Record ---");
+    printf("\nEnter New Product ID: ");
+    scanf("%d", &p[currentCount].id); // Use currentCount as the index
+    printf("Enter New Product Name: ");
+    scanf("%s", p[currentCount].name);
+    
+    currentCount++; // Increment count after adding
+
+    // Displaying the updated list
+    printf("\n--- Updated Product List ---\n");
+    printf("%-10s %-20s\n", "ID", "Product Name");
+    printf("---------------------------\n");
+    for (i = 0; i < currentCount; i++) {
+        printf("%-10d %-20s\n", p[i].id, p[i].name);
+    }
+
+    return 0;
+}
+o/p:
+Enter number of initial products: 2
+Enter ID for product 1: 101
+Enter Name for product 1: laptop
+Enter ID for product 2: 102
+Enter Name for product 2: mouse
+
+--- Add New Record ---
+Enter New Product ID: 101
+Enter New Product Name: laptop
+
+--- Updated Product List ---
+ID         Product Name        
+---------------------------
+101        laptop              
+102        mouse               
+101        laptop   
