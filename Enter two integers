@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+// Function declaration (Prototype)
+int findMax(int num1, int num2);
+
+int main() {
+    int a, b, max;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    // Function call
+    max = findMax(a, b);
+
+    printf("\n--- Result ---\n");
+    printf("The maximum of %d and %d is: %d\n", a, b, max);
+
+    return 0;
+}
+
+// Function definition
+int findMax(int num1, int num2) {
+    if (num1 > num2) {
+        return num1;
+    } else {
+        return num2;
+    }
+}
+o/p:
+Enter two integers: 85 42
+
+--- Result ---
+The maximum of 85 and 42 is: 85
