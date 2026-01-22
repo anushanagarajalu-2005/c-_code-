@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define a structure to store bus ticket details
+struct Ticket {
+    char passengerName[50];
+    int busNumber;
+    int seatNumber;
+    char destination[50];
+    float fare;
+};
+
+int main() {
+    int n, i;
+
+    printf("Bus Reservation System\n");
+    printf("======================\n");
+    printf("Enter the number of tickets to book: ");
+    scanf("%d", &n);
+
+    // Array of structures to store 'n' tickets
+    struct Ticket t[n];
+
+    // Input loop
+    for(i = 0; i < n; i++) {
+        printf("\nEntering details for Ticket #%d\n", i + 1);
+        
+        getchar(); // Clear the newline from the buffer
+        
+        printf("Passenger Name: ");
+        fgets(t[i].passengerName, 50, stdin);
+        t[i].passengerName[strcspn(t[i].passengerName, "\n")] = 0;
+
+        printf("Bus Number: ");
+        scanf("%d", &t[i].busNumber);
+
+        printf("Seat Number: ");
+        scanf("%d", &t[i].seatNumber);
+
+        getchar(); // Clear buffer before next string
+        printf("Destination: ");
+        fgets(t[i].destination, 50, stdin);
+        t[i].destination[strcspn(t[i].destination, "\n")] = 0;
+
+        printf("Ticket Fare: ");
+        scanf("%f", &t[i].fare);
+    }
+
+    // Output loop - Displaying tickets
+    printf("\n--- Booked Ticket Details ---\n");
+    printf("%-20s %-8s %-8s %-15s %-10s\n", "Passenger", "Bus No", "Seat", "Destination", "Fare");
+    printf("----------------------------------------------------------------------\n");
+
+    for(i = 0; i < n; i++) {
+        printf("%-20s %-8d %-8d %-15s $%-10.2f\n", 
+               t[i].passengerName, t[i].busNumber, t[i].seatNumber, t[i].destination, t[i].fare);
+    }
+
+    return 0;
+}
+o/p:
+Bus Reservation System
+======================
+Enter the number of tickets to book: 1
+
+Entering details for Ticket #1
+Passenger Name: anu
+Bus Number: 1203
+Seat Number: 15
+Destination: New york
+Ticket Fare: 45.00
+
+--- Booked Ticket Details ---
+Passenger            Bus No   Seat     Destination     Fare      
+----------------------------------------------------------------------
+anu                  1203     15       New york        $45.00    
