@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+
+// Define the structure
+struct Student {
+    int id;
+    char name[50];
+    float gpa;
+};
+
+int main() {
+    // Initialize an array of structures with sample records
+    struct Student records[3] = {
+        {101, "Alice Johnson", 3.8},
+        {102, "Bob Smith", 3.5},
+        {103, "Charlie Davis", 3.9}
+    };
+
+    int searchId, found = 0;
+    int n = 3; // Number of records
+
+    printf("Enter Student ID to search: ");
+    scanf("%d", &searchId);
+
+    // Linear Search Logic
+    for (int i = 0; i < n; i++) {
+        if (records[i].id == searchId) {
+            printf("\nRecord Found!\n");
+            printf("ID: %d\n", records[i].id);
+            printf("Name: %s\n", records[i].name);
+            printf("GPA: %.2f\n", records[i].gpa);
+            found = 1;
+            break; // Exit loop once found
+        }
+    }
+
+    if (!found) {
+        printf("\nRecord with ID %d not found.\n", searchId);
+    }
+
+    return 0;
+}
+o/p:
+Enter Student ID to search: 102
+
+Record Found!
+ID: 102
+Name: Bob Smith
+GPA: 3.50
